@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día, Abuela!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: #FFF5E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+        }
+        h1 {
+            color: #E67E22;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #D35400;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .emojis {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .pan {
+            position: absolute;
+            font-size: 30px;
+            animation: fly 10s linear infinite;
+        }
+        @keyframes fly {
+            0% { left: -50px; top: 50%; }
+            100% { left: 110%; top: 30%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="emojis">
+            <span class="floating">👵</span> ❤️ <span class="floating">🍲</span>
+        </div>
+        <h1>¡Feliz Día, Abuela!</h1>
+        <p>Haz la comida... que tengo hambre 😋</p>
+    </div>
+
+    <!-- Pan volador (porque toda abuela tiene pan) -->
+    <div class="pan">🍞</div>
+
+    <script>
+        // Más panes voladores
+        function crearPan() {
+            const pan = document.createElement('div');
+            pan.className = 'pan';
+            pan.innerHTML = '🍞';
+            pan.style.top = (Math.random() * 80 + 10) + '%';
+            pan.style.animationDuration = (Math.random() * 15 + 5) + 's';
+            document.body.appendChild(pan);
+            
+            setTimeout(() => {
+                pan.remove();
+            }, 15000);
+        }
+        
+        setInterval(crearPan, 2000);
+    </script>
+</body>
+</html
